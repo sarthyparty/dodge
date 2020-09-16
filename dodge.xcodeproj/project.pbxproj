@@ -13,6 +13,9 @@
 		D3ABA2792511165A00A49BB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3ABA2782511165A00A49BB4 /* Assets.xcassets */; };
 		D3ABA27C2511165A00A49BB4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3ABA27B2511165A00A49BB4 /* Preview Assets.xcassets */; };
 		D3ABA27F2511165A00A49BB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3ABA27D2511165A00A49BB4 /* LaunchScreen.storyboard */; };
+		D3ABA287251116FA00A49BB4 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ABA286251116FA00A49BB4 /* GameView.swift */; };
+		D3ABA2892511183200A49BB4 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ABA2882511183200A49BB4 /* CharacterView.swift */; };
+		D3ABA28B251118A100A49BB4 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ABA28A251118A100A49BB4 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		D3ABA27B2511165A00A49BB4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D3ABA27E2511165A00A49BB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3ABA2802511165A00A49BB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3ABA286251116FA00A49BB4 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		D3ABA2882511183200A49BB4 /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
+		D3ABA28A251118A100A49BB4 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,9 @@
 				D3ABA2722511165600A49BB4 /* AppDelegate.swift */,
 				D3ABA2742511165600A49BB4 /* SceneDelegate.swift */,
 				D3ABA2762511165600A49BB4 /* ContentView.swift */,
+				D3ABA286251116FA00A49BB4 /* GameView.swift */,
+				D3ABA2882511183200A49BB4 /* CharacterView.swift */,
+				D3ABA28A251118A100A49BB4 /* MapView.swift */,
 				D3ABA2782511165A00A49BB4 /* Assets.xcassets */,
 				D3ABA27D2511165A00A49BB4 /* LaunchScreen.storyboard */,
 				D3ABA2802511165A00A49BB4 /* Info.plist */,
@@ -147,7 +156,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3ABA2732511165600A49BB4 /* AppDelegate.swift in Sources */,
+				D3ABA28B251118A100A49BB4 /* MapView.swift in Sources */,
 				D3ABA2752511165600A49BB4 /* SceneDelegate.swift in Sources */,
+				D3ABA2892511183200A49BB4 /* CharacterView.swift in Sources */,
+				D3ABA287251116FA00A49BB4 /* GameView.swift in Sources */,
 				D3ABA2772511165600A49BB4 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
