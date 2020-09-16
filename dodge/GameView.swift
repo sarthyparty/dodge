@@ -12,7 +12,27 @@ struct GameView: View {
     var body: some View {
         ZStack {
             MapView()
-            CharacterView()
+            CharacterView(x_off: 0)
+            ButtonView()
+            
+        }
+    }
+}
+
+struct ButtonView: View {
+    var body: some View {
+        ZStack {
+            Button(action: {
+            }) {
+                Text("Left")
+            }
+            .position(x: 50, y: 600)
+            
+            Button(action: {
+            }) {
+                Text("Right")
+            }
+            .position(x: 320, y: 600)
         }
     }
 }

@@ -8,32 +8,56 @@
 
 import SwiftUI
 
-struct CharacterView: View {
-    var body: some View {
-        VStack {
-            Image("character")
-                .resizable()
-                .frame(width: 166, height: 150)
-                .animation(.default)
+
+struct ImageAnimated: UIViewRepresentable {
+    let imageSize: CGSize
+    let imageNames: [String]
+    let duration: Double = 0.5
+
+    func makeUIView(context: Self.Context) -> UIView {
+        let containerView = UIView(frame: CGRect(x: 0, y: 0
+            , width: imageSize.width, height: imageSize.height))
+
+        let animationImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height))
+
+        animationImageView.clipsToBounds = true
+        animationImageView.layer.cornerRadius = 5
+        animationImageView.autoresizesSubviews = true
+        animationImageView.contentMode = UIView.ContentMode.scaleAspectFill
+
+        var images = [UIImage]()
+        imageNames.forEach { imageName in
+            if let img = UIImage(named: imageName) {
+                images.append(img)
+            }
         }
+
+        animationImageView.image = UIImage.animatedImage(with: images, duration: duration)
+
+        containerView.addSubview(animationImageView)
+
+        return containerView
+    }
+
+    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<ImageAnimated>) {
+
     }
 }
 
-
-func animatedImages(for name: String) -> [UIImage] {
+struct CharacterView: View {
+    var x_off: Int
     
-    var i = 0
-    var images = [UIImage]()
-    
-    while let image = UIImage(named: "\(name)/\(i)") {
-        images.append(image)
-        i += 1
+    var body: some View {
+        VStack (alignment: HorizontalAlignment.center, spacing: 10) {
+            ImageAnimated(imageSize: CGSize(width: 150, height: 125), imageNames: ["left","right"])
+            .frame(width: 150, height: 125, alignment: .center)
+        }
+        .position(x: CGFloat(215 + x_off), y: 310)
     }
-    return images
 }
 
 struct CharacterView_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterView()
+        CharacterView(x_off: 0)
     }
 }
