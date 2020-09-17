@@ -11,7 +11,7 @@ import SwiftUI
 struct CharacterView: View {
     var body: some View {
         VStack {
-            Image("character")
+            Image("running")
                 .resizable()
                 .frame(width: 166, height: 150)
                 .animation(.default)
