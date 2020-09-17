@@ -26,7 +26,7 @@ struct GameView: View {
 struct ButtonView: View {
     var body: some View {
         ZStack {
-            ButtonRelease(x_pos: 50, y_pos: 600, dx: 5)
+//            ButtonRelease(x_pos: 50, y_pos: 600, dx: 5)
             
             Button(action: {
             }) {
@@ -76,9 +76,9 @@ struct ButtonRelease: View {
 //            .scaleEffect(self.pressed ? 0.8 : 1.0)
             .onLongPressGesture(minimumDuration: 1.0, maximumDistance: .infinity, pressing: { pressing in
                 self.pressed = pressing
-                let Move = movement.move(x_off: dx)
+//                let Move = movement.move(x_off: dx)
                 if pressing {
-                    self.gameTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(Move.move(x_off: self.dx)), userInfo: nil, repeats: true)
+//                    self.gameTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(Move.move(x_off: self.dx)), userInfo: nil, repeats: true)
                 } else {
                     self.text1 = Text("Released")
                 }
