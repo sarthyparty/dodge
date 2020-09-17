@@ -9,41 +9,48 @@
 import SwiftUI
 
 
-
-private var X_off = 0
-
 struct GameView: View {
+    
+    @ObservedObject var mover = movement()
     var body: some View {
-        ZStack {
-            MapView()
-            CharacterView(x_off: 0)
-            ButtonView()
             
-        }
-    }
-}
-
-struct ButtonView: View {
-    var body: some View {
         ZStack {
-//            ButtonRelease(x_pos: 50, y_pos: 600, dx: 5)
-            
-            Button(action: {
-            }) {
-                Text("Right")
-            }
-            .position(x: 320, y: 600)
+                MapView()
+                CharacterView(x_off: mover.x_off)
+                MoveButton(x_pos: 50, y_pos: 600, dx: -3, text1: Text("Left"), Move: mover)
+                
+                MoveButton(x_pos: 320, y_pos: 600, dx: 3, text1: Text("Right"), Move: mover)
         }
+            
     }
 }
 
-final class movement {
-    @objc func move(x_off: Int) {
-        X_off += x_off
+
+
+
+class movement: ObservableObject {
+    @Published var x_off: Int = 0
+    
+    var gameTimer: Timer?
+    
+    var dx: Int!
+    
+    @objc func move() {
+        
+        self.x_off += self.dx
+        print(self.dx ?? 0)
+        print(self.x_off)
+    }
+    
+    func createTimer(DX: Int) {
+        self.dx = DX
+        self.gameTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(move), userInfo: nil, repeats: true)
     }
 }
 
-struct ButtonRelease: View {
+
+
+struct MoveButton: View {
     
     
     @State private var pressed = false
@@ -56,13 +63,12 @@ struct ButtonRelease: View {
     
     var dx: Int
     
+    var text1 : Text
     
-    
-    @State var text1 = Text("Released")
+    var Move: movement
     
     
     var body: some View {
-       
         return Button(action: {
         }) {
             text1
@@ -76,11 +82,11 @@ struct ButtonRelease: View {
 //            .scaleEffect(self.pressed ? 0.8 : 1.0)
             .onLongPressGesture(minimumDuration: 1.0, maximumDistance: .infinity, pressing: { pressing in
                 self.pressed = pressing
-//                let Move = movement.move(x_off: dx)
+                
                 if pressing {
-//                    self.gameTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(Move.move(x_off: self.dx)), userInfo: nil, repeats: true)
+                    self.Move.createTimer(DX: self.dx)
                 } else {
-                    self.text1 = Text("Released")
+                    self.Move.gameTimer?.invalidate()
                 }
             }, perform: { })
     }
