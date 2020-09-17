@@ -49,10 +49,10 @@ struct CharacterView: View {
     
     var body: some View {
         VStack (alignment: HorizontalAlignment.center, spacing: 10) {
-            ImageAnimated(imageSize: CGSize(width: 75, height: 150), imageNames: ["left1","right1"])
+            ImageAnimated(imageSize: CGSize(width: 50, height: 100), imageNames: ["left1","right1"])
             .frame(width: 150, height: 125, alignment: .center)
         }
-        .position(x: CGFloat(215 + x_off), y: 310)
+        .position(x: CGFloat(235 + x_off), y: 500)
     }
 }
 

@@ -74,9 +74,9 @@ struct MoveButton: View {
             text1
         }
         .position(x: CGFloat(x_pos), y: CGFloat(y_pos))
-//            .foregroundColor(.white)
-//            .padding(15)
-//            .compositingGroup()
+            .foregroundColor(.green)
+            .padding(15)
+            .compositingGroup()
 //            .shadow(color: .black, radius: 3)
 //            .opacity(self.pressed ? 0.5 : 1.0)
 //            .scaleEffect(self.pressed ? 0.8 : 1.0)
