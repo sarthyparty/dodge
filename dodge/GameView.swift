@@ -15,7 +15,7 @@ struct GameView: View {
     var body: some View {
         return ZStack {
                 Button(action: {
-                    self.mover.createTimer(DX: 0)
+                    self.mover.createTimer()
                 }) {
                 Text("Start")
                 }
@@ -39,7 +39,7 @@ class movement: ObservableObject {
     
     var gameTimer: Timer?
     
-    var dx: Int!
+    var dx: Int = 0
     
     @objc func move() {
         
@@ -48,8 +48,7 @@ class movement: ObservableObject {
         
     }
     
-    func createTimer(DX: Int) {
-        self.dx = DX
+    func createTimer() {
         self.gameTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(move), userInfo: nil, repeats: true)
     }
 }
