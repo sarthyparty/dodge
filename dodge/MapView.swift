@@ -10,11 +10,10 @@ import SwiftUI
 
 
 struct MapView: View {
-    @ObservedObject var mover: ObjectMovement = ObjectMovement()
+    @ObservedObject var mover: movement
     
     
     var body: some View {
-        mover.createTimer()
         return ZStack {
             SpikeBall(x: 20, y: -100, mover: self.mover).view
             SpikeBall(x: 55, y: -100, mover: self.mover).view
@@ -28,7 +27,7 @@ struct MapView: View {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView()
+        return MapView(mover: movement())
     }
 }
 
@@ -37,28 +36,13 @@ struct SpikeBall: Identifiable {
     var id = UUID()
     var x: Int
     var y: Int
-    @ObservedObject var mover: ObjectMovement
+    @ObservedObject var mover: movement
     
     var view: some View {
         Image("spikeball").resizable()
         .frame(width: 45, height: 45)
-            .position(x: CGFloat(x), y: CGFloat(Double(self.y) + mover.moves))
+            .position(x: CGFloat(x), y: CGFloat(Double(self.y) + Double(mover.dropped)))
     }
 }
 
-class ObjectMovement: ObservableObject {
-    @Published var moves: Double = 0
-    
-    
-    var gameTimer: Timer?
-    
-    @objc func move() {
-        
-        self.moves += 0.005
-    }
-    
-    func createTimer() {
-        self.gameTimer = Timer.scheduledTimer(timeInterval: 0.001,target: self, selector: #selector(move), userInfo: nil, repeats: true)
-    }
-}
 
