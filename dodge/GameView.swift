@@ -57,7 +57,6 @@ class movement: ObservableObject {
 
 struct MoveButton: View {
     
-    
     @State private var pressed = false
     
     @State var gameTimer: Timer?

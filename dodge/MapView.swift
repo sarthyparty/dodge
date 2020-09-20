@@ -37,6 +37,8 @@ struct SpikeBall: Identifiable {
     var x: Int
     var y: Int
     @ObservedObject var mover: movement
+    var dim: some View = Circle()
+    .frame(width: 45, height: 45)
     
     var view: some View {
         Image("spikeball").resizable()
