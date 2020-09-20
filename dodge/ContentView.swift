@@ -8,9 +8,13 @@
 
 import SwiftUI
 
+var game = GameView()
+
+
 struct ContentView: View {
+    @State var playing = false
     var body: some View {
-        GameView()
+        game
     }
 }
 

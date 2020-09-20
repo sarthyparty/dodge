@@ -42,7 +42,7 @@ struct SpikeBall: Identifiable {
     }
     
     var dim: CGRect {
-        CGRect(x: CGFloat(x), y: CGFloat(Double(self.y) + Double(mover.dropped)), width: 45, height: 45)
+        CGRect(x: CGFloat(self.x + 45), y: CGFloat(Double(self.y) + Double(mover.dropped)), width: 45, height: 45)
     }
     
     var view: some View {
@@ -51,7 +51,7 @@ struct SpikeBall: Identifiable {
         }
         return Image("spikeball").resizable()
         .frame(width: 45, height: 45)
-            .position(x: CGFloat(x), y: CGFloat(Double(self.y) + Double(mover.dropped)))
+            .position(x: CGFloat(self.x), y: CGFloat(Double(self.y) + Double(mover.dropped)))
     }
 }
 

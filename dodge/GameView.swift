@@ -44,7 +44,7 @@ class movement: ObservableObject {
     @objc func move() {
         
         self.x_off += self.dx
-        self.dropped += 4
+        self.dropped += 2
         
     }
     
