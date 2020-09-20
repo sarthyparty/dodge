@@ -37,11 +37,19 @@ struct SpikeBall: Identifiable {
     var x: Int
     var y: Int
     @ObservedObject var mover: movement
-    var dim: some View = Circle()
-    .frame(width: 45, height: 45)
+    var rect: CGRect {
+        CGRect(x: mover.x_off+235, y: 460, width: 50, height: 100)
+    }
+    
+    var dim: CGRect {
+        CGRect(x: CGFloat(x), y: CGFloat(Double(self.y) + Double(mover.dropped)), width: 45, height: 45)
+    }
     
     var view: some View {
-        Image("spikeball").resizable()
+        if dim.intersects(rect) {
+            self.mover.gameTimer?.invalidate()
+        }
+        return Image("spikeball").resizable()
         .frame(width: 45, height: 45)
             .position(x: CGFloat(x), y: CGFloat(Double(self.y) + Double(mover.dropped)))
     }
