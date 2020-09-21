@@ -8,13 +8,27 @@
 
 import SwiftUI
 
-var game = GameView()
-
 
 struct ContentView: View {
     @State var playing = false
     var body: some View {
-        game
+        ZStack {
+            if self.playing {
+                GameView()
+                Button(action: {
+                    self.playing = false
+                }) {
+                Text("MENU")
+                }
+                    .position(x: 325, y: 25)
+            } else {
+                Button(action: {
+                    self.playing = true
+                }) {
+                Text("PLAY")
+                }
+            }
+        }
     }
 }
 
