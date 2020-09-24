@@ -23,9 +23,9 @@ struct GameView: View {
                 }
                 MapView(mover: mover)
                 CharacterView(x_off: mover.x_off)
-                MoveButton(x_pos: 50, y_pos: 600, dx: -3, text1: Text("Left"), Move: mover)
+            MoveButton(x_pos: (width/7.5), y_pos: (height/1.11167), dx: -(width/125), text1: Text("Left"), Move: mover)
                 
-                MoveButton(x_pos: 320, y_pos: 600, dx: 3, text1: Text("Right"), Move: mover)
+            MoveButton(x_pos: (width/1.171875), y_pos: (height/1.11167), dx: (width/125), text1: Text("Right"), Move: mover)
         }
             
     }
@@ -35,24 +35,24 @@ struct GameView: View {
 
 
 class movement: ObservableObject {
-    @Published var x_off: Int = 0
+    @Published var x_off: CGFloat = 0
     
-    @Published var dropped: Int = 0
+    @Published var dropped: CGFloat = 0
     
     var gameTimer: Timer?
     
-    var dx: Int = 0
+    var dx: CGFloat = 0
     
     var layer: SpikeLayer? = nil
     
     @objc func move() {
         
         self.x_off += self.dx
-        self.dropped += 4
-        if dropped % 800 == 0 {
+        self.dropped += (height/166.75)
+        if dropped >= (height/0.83375) {
             let gen = GenLayer()
             self.layer = gen.generate(mover: self)
-            self.dropped = 4
+            self.dropped = (height/166.75)
         }
         
     }
@@ -70,11 +70,11 @@ struct MoveButton: View {
     
     @State var gameTimer: Timer?
     
-    var x_pos: Int
+    var x_pos: CGFloat
     
-    var y_pos: Int
+    var y_pos: CGFloat
     
-    var dx: Int
+    var dx: CGFloat
     
     var text1 : Text
     
