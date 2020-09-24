@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-var spots = [20.0,55.0,90.0,125.0,160.0,195.0,230.0,265.0,300.0,335.0,370.0]
+var spots = [width/18.75,width/6.8181818,width/4.16666667,width/3,width/2.34375,width/1.923077,width/1.63043,width/1.4151,width/1.25,width/1.119403,width/1.0135]
 
 
 struct MapView: View {
@@ -36,11 +36,11 @@ struct SpikeBall: Identifiable {
     var y: CGFloat
     @ObservedObject var mover: movement
     var rect: CGRect {
-        CGRect(x: mover.x_off+235, y: 460, width: 40, height: 100)
+        CGRect(x: CGFloat(mover.x_off)+(width/1.5957), y: height/1.51591, width: width/9.375, height: height/6.67)
     }
     
     var dim: CGRect {
-        CGRect(x: CGFloat(self.x + 45), y: CGFloat(Double(self.y) + Double(mover.dropped)), width: 45, height: 40)
+        CGRect(x: CGFloat(self.x + width/8.333333), y: CGFloat(Double(self.y) + Double(mover.dropped)), width: width/8.333333, height: height/16.675)
     }
     
     var view: some View {
@@ -48,7 +48,7 @@ struct SpikeBall: Identifiable {
             self.mover.gameTimer?.invalidate()
         }
         return Image("spikeball").resizable()
-            .frame(width: 45, height: 45)
+            .frame(width: width/8.3333333333, height: height/14.8222222222)
             .position(x: CGFloat(self.x), y: CGFloat(Double(self.y) + Double(mover.dropped)))
         
     }
@@ -58,22 +58,22 @@ struct SpikeBall: Identifiable {
 struct SpikeLayer: View{
     
     @ObservedObject var mover: movement
-    var num: Int
+    var num: CGFloat
     var spots: [CGFloat]
     var body: some View {
         ZStack {
-            SpikeBall(x: spots[0], y:-100, mover: self.mover).view
-            SpikeBall(x: spots[1], y:-100, mover: self.mover).view
+            SpikeBall(x: spots[0], y:-height/6.67, mover: self.mover).view
+            SpikeBall(x: spots[1], y:-height/6.67, mover: self.mover).view
             if self.num == 3 {
-                SpikeBall(x: spots[2], y:-100, mover: self.mover).view
+                SpikeBall(x: spots[2], y:-height/6.67, mover: self.mover).view
             } else if self.num == 4 {
-                SpikeBall(x: spots[2], y:-100, mover: self.mover).view
-                SpikeBall(x: spots[3], y:-100, mover: self.mover).view
+                SpikeBall(x: spots[2], y:-height/6.67, mover: self.mover).view
+                SpikeBall(x: spots[3], y:-height/6.67, mover: self.mover).view
 
             } else if self.num == 5 {
-                SpikeBall(x: spots[2], y:-100, mover: self.mover).view
-                SpikeBall(x: spots[3], y:-100, mover: self.mover).view
-                SpikeBall(x: spots[4], y:-100, mover: self.mover).view
+                SpikeBall(x: spots[2], y:-height/6.67, mover: self.mover).view
+                SpikeBall(x: spots[3], y:-height/6.67, mover: self.mover).view
+                SpikeBall(x: spots[4], y:-height/6.67, mover: self.mover).view
             }
         }
         
@@ -89,7 +89,7 @@ class GenLayer {
         for _ in 1...num {
             spotslist.append(CGFloat(spots[Int.random(in: 0..<11)]))
         }
-        return SpikeLayer(mover: mover, num: num, spots: spotslist)
+        return SpikeLayer(mover: mover, num: CGFloat(num), spots: spotslist)
     }
 }
 
