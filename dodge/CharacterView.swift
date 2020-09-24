@@ -45,12 +45,12 @@ struct ImageAnimated: UIViewRepresentable {
 }
 
 struct CharacterView: View {
-    var x_off: Int
+    var x_off: CGFloat
     
     var body: some View {
-        VStack (alignment: HorizontalAlignment.center, spacing: 10) {
-            ImageAnimated(imageSize: CGSize(width: 50, height: 100), imageNames: ["left1","right1"])
-            .frame(width: 150, height: 125, alignment: .center)
+        VStack (alignment: HorizontalAlignment.center, spacing: height/66.7) {
+            ImageAnimated(imageSize: CGSize(width: width/7.5, height: height/6.67), imageNames: ["left1","right1"])
+                .frame(width: width/2.5, height: height/5.336, alignment: .center)
         }
         .position(x: CGFloat((width/1.5957) + CGFloat(x_off)), y: (height/1.334))
     }
