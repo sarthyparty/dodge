@@ -20,7 +20,7 @@ struct ContentView: View {
                 }) {
                 Text("MENU")
                 }
-                    .position(x: 325, y: 25)
+                .position(x: width/1.15384, y: height/26.68)
             } else {
                 Button(action: {
                     self.playing = true
