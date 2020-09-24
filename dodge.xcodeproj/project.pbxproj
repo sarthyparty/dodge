@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D374411D251CE167008F9259 /* ScreenSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D374411C251CE167008F9259 /* ScreenSizeView.swift */; };
 		D3ABA2732511165600A49BB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ABA2722511165600A49BB4 /* AppDelegate.swift */; };
 		D3ABA2752511165600A49BB4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ABA2742511165600A49BB4 /* SceneDelegate.swift */; };
 		D3ABA2772511165600A49BB4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ABA2762511165600A49BB4 /* ContentView.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D374411C251CE167008F9259 /* ScreenSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSizeView.swift; sourceTree = "<group>"; };
 		D3ABA26F2511165600A49BB4 /* dodge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dodge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3ABA2722511165600A49BB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3ABA2742511165600A49BB4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				D3ABA286251116FA00A49BB4 /* GameView.swift */,
 				D3ABA2882511183200A49BB4 /* CharacterView.swift */,
 				D3ABA28A251118A100A49BB4 /* MapView.swift */,
+				D374411C251CE167008F9259 /* ScreenSizeView.swift */,
 				D3ABA2782511165A00A49BB4 /* Assets.xcassets */,
 				D3ABA27D2511165A00A49BB4 /* LaunchScreen.storyboard */,
 				D3ABA2802511165A00A49BB4 /* Info.plist */,
@@ -156,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3ABA2732511165600A49BB4 /* AppDelegate.swift in Sources */,
+				D374411D251CE167008F9259 /* ScreenSizeView.swift in Sources */,
 				D3ABA28B251118A100A49BB4 /* MapView.swift in Sources */,
 				D3ABA2752511165600A49BB4 /* SceneDelegate.swift in Sources */,
 				D3ABA2892511183200A49BB4 /* CharacterView.swift in Sources */,

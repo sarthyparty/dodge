@@ -7,6 +7,8 @@
 //
 
 import SwiftUI
+import Foundation
+
 
 
 struct GameView: View {
@@ -41,10 +43,17 @@ class movement: ObservableObject {
     
     var dx: Int = 0
     
+    var layer: SpikeLayer? = nil
+    
     @objc func move() {
         
         self.x_off += self.dx
-        self.dropped += 2
+        self.dropped += 4
+        if dropped % 800 == 0 {
+            let gen = GenLayer()
+            self.layer = gen.generate(mover: self)
+            self.dropped = 4
+        }
         
     }
     

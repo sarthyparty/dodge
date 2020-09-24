@@ -52,7 +52,7 @@ struct CharacterView: View {
             ImageAnimated(imageSize: CGSize(width: 50, height: 100), imageNames: ["left1","right1"])
             .frame(width: 150, height: 125, alignment: .center)
         }
-        .position(x: CGFloat(235 + x_off), y: 500)
+        .position(x: CGFloat((width/1.5957) + CGFloat(x_off)), y: (height/1.334))
     }
 }
 
