@@ -84,7 +84,11 @@ struct MoveButton: View {
     var body: some View {
         return Button(action: {
         }) {
-            text1
+            VStack{
+                HStack{
+                    text1
+                }  
+            }
         }
         .position(x: CGFloat(x_pos), y: CGFloat(y_pos))
             .foregroundColor(.green)
