@@ -8,15 +8,17 @@
 
 import SwiftUI
 
+var game = GameView()
 
 struct ContentView: View {
     @State var playing = false
     var body: some View {
         ZStack {
             if self.playing {
-                GameView()
+                game
                 Button(action: {
                     self.playing = false
+                    game.mover.reset()
                 }) {
                 Text("MENU")
                 }
@@ -24,6 +26,7 @@ struct ContentView: View {
             } else {
                 Button(action: {
                     self.playing = true
+                    game.mover.createTimer()
                 }) {
                 Text("PLAY")
                 }

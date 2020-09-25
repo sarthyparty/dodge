@@ -16,11 +16,6 @@ struct GameView: View {
     @ObservedObject var mover = movement()
     var body: some View {
         return ZStack {
-                Button(action: {
-                    self.mover.createTimer()
-                }) {
-                Text("Start")
-                }
                 MapView(mover: mover)
                 CharacterView(x_off: mover.x_off)
             MoveButton(x_pos: (width/7.5), y_pos: (height/1.11167), dx: -(width/125), text1: Text("Left"), Move: mover)
@@ -59,6 +54,12 @@ class movement: ObservableObject {
     
     func createTimer() {
         self.gameTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(move), userInfo: nil, repeats: true)
+    }
+    
+    func reset() {
+        self.x_off = 0
+        self.dropped = 0
+        self.gameTimer?.invalidate()
     }
 }
 
