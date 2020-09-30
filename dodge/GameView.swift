@@ -44,6 +44,12 @@ class movement: ObservableObject {
         
         self.x_off += self.dx
         self.dropped += (height/166.75)
+        if self.x_off >= (width / 2.3) {
+            self.x_off -= self.dx
+        }
+        if self.x_off <= (width / -2.2) {
+            self.x_off -= self.dx
+        }
         if dropped >= (height/0.83375) {
             let gen = GenLayer()
             self.layer = gen.generate(mover: self)

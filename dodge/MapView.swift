@@ -36,7 +36,7 @@ struct SpikeBall: Identifiable {
     var y: CGFloat
     @ObservedObject var mover: movement
     var rect: CGRect {
-        CGRect(x: CGFloat(mover.x_off)+(width/1.5957), y: height/1.51591, width: width/9.375, height: height/6.67)
+        CGRect(x: CGFloat(mover.x_off)+(width/1.5957), y: height/1.45, width: width/9.375, height: height/6.67)
     }
     
     var dim: CGRect {
