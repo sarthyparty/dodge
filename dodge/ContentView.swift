@@ -23,6 +23,7 @@ struct ContentView: View {
                 Text("MENU")
                 }
                 .position(x: width/1.15384, y: height/26.68)
+                .buttonStyle(ButtonStyle1())
             } else {
                 Button(action: {
                     self.playing = true
@@ -30,8 +31,20 @@ struct ContentView: View {
                 }) {
                 Text("PLAY")
                 }
+                .buttonStyle(ButtonStyle1())
+
             }
         }
+    }
+}
+struct ButtonStyle1: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .foregroundColor(Color.white)
+            .padding()
+            .background(Color.black)
+            .cornerRadius(10)
+            .scaleEffect(0.9)
     }
 }
 
