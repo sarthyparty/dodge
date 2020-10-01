@@ -98,12 +98,7 @@ struct MoveButton: View {
             }
         }
         .position(x: CGFloat(x_pos), y: CGFloat(y_pos))
-            .foregroundColor(.green)
-            .padding(15)
-            .compositingGroup()
-//            .shadow(color: .black, radius: 3)
-//            .opacity(self.pressed ? 0.5 : 1.0)
-//            .scaleEffect(self.pressed ? 0.8 : 1.0)
+            .buttonStyle(ButtonStyle1())
             .onLongPressGesture(minimumDuration: 1.0, maximumDistance: .infinity, pressing: { pressing in
                 self.pressed = pressing
                 
