@@ -16,6 +16,8 @@ struct GameView: View {
     @ObservedObject var mover = movement()
     var body: some View {
         return ZStack {
+            Text("Score: " + self.mover.score.description)
+                .position(x: width/2, y: height/26.68)
                 MapView(mover: mover)
                 CharacterView(x_off: mover.x_off)
             MoveButton(x_pos: (width/7.5), y_pos: (height/1.11167), dx: -(width/125), text1: Text("Left"), Move: mover)
@@ -40,6 +42,8 @@ class movement: ObservableObject {
     
     var layer: SpikeLayer? = nil
     
+    var score = 0
+    
     @objc func move() {
         
         self.x_off += self.dx
@@ -55,6 +59,7 @@ class movement: ObservableObject {
             self.layer = gen.generate(mover: self)
             self.dropped = (height/166.75)
         }
+        self.score += 1
         
     }
     
@@ -66,6 +71,8 @@ class movement: ObservableObject {
         self.x_off = 0
         self.dropped = 0
         self.gameTimer?.invalidate()
+        self.layer = nil
+        self.score = 0
     }
 }
 
