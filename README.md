@@ -1,0 +1,1 @@
+This game was built using base Swift and SwiftUI. In this game, players dodge spikes falling from the sky. Players try to stay alive for as long as possible and reach the highest possible high score as well.
